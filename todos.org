@@ -1,7 +1,8 @@
 #+title: delog.nvim TODOs
 #+author: EJ Shafran
 
-* TODO Add a `vim.g` variable like `commentstring`
+* DONE Add a `vim.g` variable like `commentstring`
+  CLOSED: [2024-08-21 Wed 01:01]
 
 * TODO Create defaults for some well-known languages
 
