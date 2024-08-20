@@ -1,22 +1,21 @@
 ---
-name: Lint Code Base
+name: Lint Codebase
 on:
   pull_request: ~
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
-    name: Lint Code Base
+    name: Lint Codebase
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
-
+        uses: actions/checkout@v4
       - name: Lint Code Base
-        uses: github/super-linter/slim@v4
+        uses: github/super-linter/slim@v7
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LINTER_RULES_PATH: /

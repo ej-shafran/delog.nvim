@@ -3,15 +3,43 @@ name: "Release"
 on:
   push:
     tags:
-      - 'v*.*.*'
+      - "v*.*.*"
 
 jobs:
+  github-release:
+    name: GitHub Release
+    runs-on: ubunut-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Setup security
+        uses: step-security/harden-runner@v1
+        with:
+          allowed-endpoints: api.github.com:443
+            github.com:443
+      - name: Version From Tag
+        id: tag_name
+        run: echo "current_version=${GITHUB_REF#refs/tags/v}" >> "$GITHUB_OUTPUT"
+        shell: bash
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: mindsers/changelog-reader-action@v2
+        id: changelog_reader
+        with:
+          version: ${{ steps.tag_name.outputs.current_version }}
+      - uses: softprops/action-gh-release@v2
+        with:
+          body: ${{ steps.changelog_reader.outputs.changes }}
+
   luarocks-release:
-    runs-on: ubuntu-latest
     name: Luarocks Release
+    runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         if: env.LUAROCKS_API_KEY != null
       - name: Luarocks Upload
         uses: nvim-neorocks/luarocks-tag-release@v7
