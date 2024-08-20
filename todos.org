@@ -1,0 +1,10 @@
+#+title: delog.nvim TODOs
+#+author: EJ Shafran
+
+* TODO Add a `vim.g` variable like `commentstring`
+
+* TODO Create defaults for some well-known languages
+
+* TODO Create a command that inserts the log statement
+
+* TODO Use TreeSitter to place the log in a valid spot
