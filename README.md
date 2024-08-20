@@ -11,8 +11,9 @@ Running tests requires either
 
 to be installed[^1].
 
-[^1]: The test suite assumes that `nlua` has been installed
-      using luarocks into `~/.luarocks/bin/`.
+[^1]:
+    The test suite assumes that `nlua` has been installed
+    using luarocks into `~/.luarocks/bin/`.
 
 You can then run:
 

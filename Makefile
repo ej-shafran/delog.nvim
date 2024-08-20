@@ -4,3 +4,4 @@ test:
 format:
 	stylua lua/
 	stylua spec/
+	prettier --write **/*.md **/*.yml
