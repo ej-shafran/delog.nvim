@@ -8,4 +8,10 @@
 
 * TODO Create a command that inserts the log statement
 
+** TODO From a register
+
+** TODO From text under cursor
+
+* TODO Create a command that removes log statements
+
 * TODO Use TreeSitter to place the log in a valid spot
